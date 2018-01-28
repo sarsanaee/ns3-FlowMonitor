@@ -225,9 +225,11 @@ FlowMonitor::ReportLastRx (Ptr<FlowProbe> probe, uint32_t flowId, uint32_t packe
   if(stats.rxPackets)
     stats.averageLatency = stats.delaySum/stats.delays_container.size();
     
-  // throughput
+  // throughput Mbps
   stats.throughput = (stats.rxBytes * 8.0)/(stats.timeLastRxPacket.GetSeconds()-
-                      stats.timeFirstTxPacket.GetSeconds()) / 1024.0;
+                      stats.timeFirstTxPacket.GetSeconds()) / 131072.0;
+                      
+  stats.throughputs_container.push_back(stats.throughput);
   //aghax
   
   

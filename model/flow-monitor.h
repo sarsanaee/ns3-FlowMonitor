@@ -99,6 +99,7 @@ public:
     
     //all delays
     std::vector<Time> delays_container;
+    std::vector<double> throughputs_container;
     //aghax
 
     /// Total number of transmitted bytes for the flow
